@@ -1,10 +1,15 @@
 /*
 ===============================================================================
-Procedure:    bronze.load_bronze
-Purpose:      Load raw data from CRM and ERP CSV files into Bronze layer tables.
-Process:      Truncate existing table data, bulk load fresh data from source
-              files, and measure loading duration for each table and the
-              entire batch. Handle errors and display diagnostic information.
+Stored Procedure: bronze.load_bronze
+Description:      Loads raw data from CRM and ERP CSV files into Bronze tables.
+Parameters:       None (no input or output parameters).
+Return Value:     No explicitly defined return value.
+Operations:       Truncates existing table data and bulk loads CSV files using
+                  BULK INSERT.
+Processing:       Loads six tables sequentially and measures the duration of
+                  each load and the entire batch.
+Error Handling:   Uses TRY...CATCH to capture and display error information.
+Execution:        Must be executed separately using EXEC bronze.load_bronze;
 ===============================================================================
 */
 --Scripts to load data from CRMs (BULK LOAD)
